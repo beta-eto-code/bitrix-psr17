@@ -9,6 +9,7 @@ use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\ServerRequest;
 use GuzzleHttp\Psr7\UploadedFile;
 use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Psr7\Utils;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
@@ -67,7 +68,7 @@ class HttpFactory implements
      */
     public function createStream(string $content = ''): StreamInterface
     {
-        return stream_for($content);
+        return Utils::streamFor($content);
     }
 
     /**
@@ -77,7 +78,7 @@ class HttpFactory implements
      */
     public function createStreamFromFile(string $filename, string $mode = 'r'): StreamInterface
     {
-        return stream_for(fopen($filename, $mode));
+        return Utils::streamFor(fopen($filename, $mode));
     }
 
     /**
@@ -86,7 +87,7 @@ class HttpFactory implements
      */
     public function createStreamFromResource($resource): StreamInterface
     {
-        return stream_for($resource);
+        return Utils::streamFor($resource);
     }
 
     /**
