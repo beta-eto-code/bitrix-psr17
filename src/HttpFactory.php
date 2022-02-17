@@ -1,8 +1,6 @@
 <?php
 
-
 namespace BitrixPSR17;
-
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
@@ -104,8 +102,7 @@ class HttpFactory implements
         int $error = \UPLOAD_ERR_OK,
         string $clientFilename = null,
         string $clientMediaType = null
-    ): UploadedFileInterface
-    {
+    ): UploadedFileInterface {
         return new UploadedFile($stream, $size, $error, $clientFilename, $clientMediaType);
     }
 
